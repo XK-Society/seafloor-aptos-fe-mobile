@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Colors } from '@/constants/Colors';
+import { Colors } from '../../constants/Colors';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '@/app/types/navigate';
+import { RootStackParamList } from '../../app/types/navigate';
 
 interface Token {
     id: number;
