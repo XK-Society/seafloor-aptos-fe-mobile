@@ -1,4 +1,4 @@
-import BuProfile from '@/components/Business/BusinessProfile'
+import BuProfile from '../../components/Business/BusinessProfile'
 import React from 'react'
 import { Text } from 'react-native'
 

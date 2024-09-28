@@ -4,8 +4,8 @@ import BusinessIcon from "../assets/sf-assets/business-logo.png";
 import InvestorIcon from "../assets/sf-assets/investor-logo.png";
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import React, { useState } from "react";
-import { RootStackParamList } from "@/app/types/navigate";
-import { Colors } from "@/constants/Colors";
+import { RootStackParamList } from "../app/types/navigate";
+import { Colors } from "../constants/Colors";
 import UserTypePopup from "./popup/UserTypePopup";
 
 export default function HomeScreen() {

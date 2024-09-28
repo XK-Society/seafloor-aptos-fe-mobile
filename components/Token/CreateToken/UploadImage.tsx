@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Platform, ProgressBarAndroid } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { Colors } from '@/constants/Colors';  // Define your Colors object as needed
-import { RootStackParamList } from '@/app/types/navigate';
+import { Colors } from '../../../constants/Colors';  // Define your Colors object as needed
+import { RootStackParamList } from '../../../app/types/navigate';
 
 export default function UploadImage() {
     const navigation = useNavigation<NavigationProp<RootStackParamList>>();
