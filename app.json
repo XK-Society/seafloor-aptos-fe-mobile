@@ -4,7 +4,7 @@
     "slug": "seafloor-finance-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "../assets/sf-assets/sf-logo-3d.png",
+    "icon": "./assets/sf-assets/sf-logo-3d.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "ios": {
