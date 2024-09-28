@@ -8,6 +8,7 @@ import TokenList from '../components/Token/TokenList';
 export default function InvHome() {
   return (
     <View>
+      <InvestorHeader />
       <InTokenList/>
     </View>
   );

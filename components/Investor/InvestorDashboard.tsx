@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import { Colors } from '../../constants/Colors'; // Adjust the import path as necessary
-import InvestorDashboard from '../../app/investortab/dashboard';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from "../../app/types/navigate";
 
 const { width } = Dimensions.get('window');
 
+
+
 const InvDashboard: React.FC = () => {
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>(); 
     const tokens = [
         {
             id: 1,
@@ -24,6 +28,12 @@ const InvDashboard: React.FC = () => {
         // Add more tokens as needed
     ];
 
+    // Function to handle button press
+    const handleButtonPress = () => {
+        navigation.navigate('investortab');
+        console.log('Button Pressed!'); // Example action
+    };
+
     return (
         <ScrollView style={styles.container}>
             <Text style={styles.header}>List of Tokenize</Text>
@@ -37,15 +47,17 @@ const InvDashboard: React.FC = () => {
                     </View>
                 </View>
             ))}
+            <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
+                <Text style={styles.buttonText}>Go to Homepage</Text>
+            </TouchableOpacity>
         </ScrollView>
     );
 };
-// 
+
 export default InvDashboard;
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
         backgroundColor: Colors.PRIMARY, // Change to your primary background color
         padding: 20,
     },
@@ -94,5 +106,17 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         color: '#333',
+    },
+    button: {
+        backgroundColor: '#fff', // White background
+        borderRadius: 10,
+        padding: 15,
+        alignItems: 'center',
+        marginTop: 20, // Space above the button
+    },
+    buttonText: {
+        color: Colors.PRIMARY, // Text color
+        fontSize: 18,
+        fontFamily: 'poppins-bold',
     },
 });
