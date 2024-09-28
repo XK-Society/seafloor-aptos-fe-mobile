@@ -13,6 +13,7 @@ export type RootStackParamList = {
   InvestorTokenize: undefined;
   InTokenDeets: { token: Token }; 
   InvestorBuy:{ token: Token };
+  InvestorDash: undefined;
   // Other routes...
 };
 
