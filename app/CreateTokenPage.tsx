@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CreateToken from '@/components/Token/CreateToken'
-import BusinessHeader from '@/components/Business/BusinessHeader'
-import { Colors } from '@/constants/Colors'
+import CreateToken from '../components/Token/CreateToken'
+import BusinessHeader from '../components/Business/BusinessHeader'
+import { Colors } from '../constants/Colors'
 
 export default function CreateTokenPage() {
   return (
