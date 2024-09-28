@@ -10,8 +10,8 @@ export type RootStackParamList = {
   TokenDescPage: undefined;
   InTokenList: undefined;
   InvestorHome: undefined;
-  InTokenDeets: { token: Token };
-  InvestorTokenize: { token: Token }; 
+  InvestorTokenize: undefined;
+  InTokenDeets: { token: Token }; 
   InvestorBuy:{ token: Token };
   // Other routes...
 };

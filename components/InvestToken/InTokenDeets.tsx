@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, Modal } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { RootStackParamList } from '@/app/types/navigate';
-import { Colors } from '@/constants/Colors';
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
+import { RootStackParamList } from '../../app/types/navigate';
+import { Colors } from '../../constants/Colors';
+import { useNavigation } from '@react-navigation/native';
 
 interface Token {
     id: number;
@@ -16,33 +16,33 @@ const { width } = Dimensions.get('window');
 
 const InTokenDeets2: React.FC = () => {
     const route = useRoute<RouteProp<RootStackParamList, 'InTokenDeets'>>();
-    const navigation = useNavigation(); // Use the navigation hook
-    const { token } = route.params; // Access the token parameter
+    const navigation = useNavigation();
+    const { token } = route.params;
 
-    const [modalVisible, setModalVisible] = useState(false); // State for modal visibility
+    const [modalVisible, setModalVisible] = useState(false);
 
     const handleBuyPress = () => {
-        setModalVisible(true); // Show the modal when Buy button is pressed
+        console.log('Confirmed purchase for:', token.name);
+        setModalVisible(true);
     };
 
     const handleBackPress = () => {
-        navigation.goBack(); // Navigate back to the previous screen
+        setModalVisible(false); // Navigate to "InvestorDashboard
     };
 
     const handleConfirmPurchase = () => {
-        // Handle the confirm purchase action here
-        console.log('Confirmed purchase for:', token.name);
-        setModalVisible(false); // Close the modal after confirmation
+        setModalVisible(false);
     };
 
-    const handleCancelPurchase = () => {
-        setModalVisible(false); // Close the modal without confirmation
+    const handleDonePurchase = () => {
+        setModalVisible(false);
+        navigation.navigate('InvestorDash');
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.investText}>Invest in {token.name}</Text>
             <View style={styles.primaryContainer}>
+            <Text style={styles.titleText}>Tokenize Information</Text>
                 <Image source={{ uri: token.image }} style={styles.tokenImage} />
                 <Text style={styles.tokenName}>{token.name}</Text>
                 <Text style={styles.tokenDescription}>{token.price}</Text>
@@ -61,7 +61,7 @@ const InTokenDeets2: React.FC = () => {
                 animationType="slide"
                 transparent={true}
                 visible={modalVisible}
-                onRequestClose={() => setModalVisible(false)} // Close modal on back press
+                onRequestClose={() => setModalVisible(false)}
             >
                 <View style={styles.modalOverlay}>
                     <View style={styles.modalContainer}>
@@ -73,7 +73,7 @@ const InTokenDeets2: React.FC = () => {
                             <TouchableOpacity style={styles.modalButton} onPress={handleConfirmPurchase}>
                                 <Text style={styles.modalButtonText}>Transaction Link</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={[styles.modalButton, styles.DoneButton]} onPress={handleCancelPurchase}>
+                            <TouchableOpacity style={[styles.modalButton, styles.DoneButton]} onPress={handleDonePurchase}>
                                 <Text style={styles.modalButtonText}>Done</Text>
                             </TouchableOpacity>
                         </View>
@@ -90,69 +90,78 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
-        backgroundColor: Colors.PRIMARY,
+        marginTop: 80,
+        // backgroundColor: Colors.PRIMARY, // Dark blue background
     },
-    investText: {
-        marginTop: 40,
-        marginBottom: 20,
-        fontSize: 30,
+    titleText: {
+        fontSize: 26, // Larger font for title
         fontFamily: 'poppins-bold',
-        color: Colors.PRIMARY,
+        color: Colors.PRIMARY, // Primary color for title
         textAlign: 'center',
+        marginBottom: 40,
     },
     primaryContainer: {
         width: width * 0.85,
-        backgroundColor: '#fff',
-        paddingVertical: 20,
+        backgroundColor: '#fff', // White background for the card
+        paddingVertical: 40, // Double the padding for height increase
         paddingHorizontal: 15,
-        borderRadius: 15,
+        borderRadius: 20, // Increased roundness
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+        shadowOpacity: 0.3, // A bit more pronounced shadow
+        shadowRadius: 4,
+        elevation: 6, // Adjust elevation for better shadow
     },
     tokenImage: {
-        width: 150,
-        height: 150,
+        width: 120, // Reduced size to match image
+        height: 120,
         borderRadius: 10,
         marginBottom: 20,
+        shadowColor: '#000', // Shadow effect for image
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
     },
     tokenName: {
-        fontSize: 24,
+        fontSize: 22, // Font size similar to image
         fontFamily: 'poppins-bold',
-        marginBottom: 10,
-        color: Colors.PRIMARY,
+        marginBottom: 5, // Less margin
+        color: Colors.PRIMARY, // Dark blue color for contrast
+        textAlign: 'center',
     },
     tokenDescription: {
         fontSize: 16,
         textAlign: 'center',
         fontFamily: 'volte',
-        marginBottom: 20,
+        marginBottom: 5, // Adjust margin for tight spacing
         color: '#333',
     },
     buttonContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         width: '100%',
-        paddingHorizontal: 20,
-        marginTop: 20,
+        paddingHorizontal: 10, // Slight padding to fit
+        marginTop: 30, // Increase margin between card and buttons
     },
     button: {
         flex: 1,
-        backgroundColor: '#fff',
-        borderRadius: 10,
-        paddingVertical: 10,
+        backgroundColor: '#fff', // Primary color for button background
+        borderRadius: 25, // Rounder buttons
+        paddingVertical: 12, // Increased padding for button height
         alignItems: 'center',
         marginHorizontal: 10,
+        shadowColor: '#000', // Button shadow for elevation effect
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+        elevation: 4, // Button elevation
     },
     backButton: {
-        backgroundColor: '#aaa', // Different color for the Back button
+        backgroundColor: '#fff', // White background for back button
     },
     buttonText: {
-        color: Colors.PRIMARY,
+        color: Colors.PRIMARY, // White text color for button
         fontSize: 18,
         fontFamily: 'poppins-bold',
     },
@@ -160,51 +169,58 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+        backgroundColor: 'rgba(0,0,0,0.5)',
     },
     modalContainer: {
         width: width * 0.85,
         backgroundColor: '#fff',
-        padding: 20,
-        borderRadius: 15,
+        borderRadius: 20,
+        paddingVertical: 20,
+        paddingHorizontal: 15,
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        shadowRadius: 4,
         elevation: 5,
     },
     modalTitle: {
         fontSize: 24,
         fontFamily: 'poppins-bold',
         color: Colors.PRIMARY,
-        marginBottom: 10,
+        marginBottom: 15,
     },
     modalMessage: {
         fontSize: 16,
+        fontFamily: 'volte',
         textAlign: 'center',
         color: '#333',
         marginBottom: 20,
     },
     modalButtonContainer: {
-        flexDirection: 'column',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         width: '100%',
-        alignItems: 'center',
     },
     modalButton: {
+        flex: 1,
         backgroundColor: Colors.PRIMARY,
-        borderRadius: 10,
-        paddingVertical: 10,
-        width: '80%',
+        borderRadius: 20,
+        paddingVertical: 12,
         alignItems: 'center',
-        marginBottom: 10,
-    },
-    DoneButton: {
-        backgroundColor: '#aaa', 
+        marginHorizontal: 5,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+        elevation: 4,
     },
     modalButtonText: {
         color: '#fff',
         fontSize: 18,
         fontFamily: 'poppins-bold',
+    },
+    DoneButton: {
+        backgroundColor: '#aaa', // Lighter button color for Done
     },
 });

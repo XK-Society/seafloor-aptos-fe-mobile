@@ -2,13 +2,12 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import InvestorHeader from '../components/Investor/InvestorHeader';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import InTokenList from '../components/InvestToken/InTokenList';
-import TokenList from '../components/Token/TokenList';
+import InvestorDashboard from '../app/investortab/dashboard';
 
-export default function InvHome() {
+export default function InvestorTokenize() {
   return (
     <View style={styles.container}>
-      <InTokenList/>
+        <InvestorDashboard/>
     </View>
   );
 }
