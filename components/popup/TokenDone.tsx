@@ -1,8 +1,8 @@
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { Colors } from '@/constants/Colors';
+import { Colors } from '../../constants/Colors';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '@/app/types/navigate';
+import { RootStackParamList } from '../../app/types/navigate';
 
 export default function TokenDone() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>(); 

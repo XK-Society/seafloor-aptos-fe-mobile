@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Platform, ProgressBarAndroid, TextInput, Modal } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { Colors } from '@/constants/Colors';  // Define your Colors object as needed
-import { RootStackParamList } from '@/app/types/navigate';
+import { Colors } from '../../../constants/Colors';  // Define your Colors object as needed
+import { RootStackParamList } from '../../../app/types/navigate';
 import WhaleAnimation from '../../animation/Whale'; 
 
 // Define the type for WhaleAnimation ref

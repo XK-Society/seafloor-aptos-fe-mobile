@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../components/Business/BusinessHeader'
 import CreateTokenButton from '../components/Token/CreateTokenButton'
 import TokenList from '../components/Token/TokenList'
-import { Colors } from '@/constants/Colors'
+import { Colors } from '../constants/Colors'
 
 export default function BusinessHomepage() {
   return (

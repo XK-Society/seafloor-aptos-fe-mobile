@@ -1,6 +1,6 @@
 import { Animated, Easing, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
-import { Colors } from '@/constants/Colors';
+import { Colors } from '../../constants/Colors';
 
 // TODO: Whale animation fix
 

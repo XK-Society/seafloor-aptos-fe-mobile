@@ -1,6 +1,6 @@
-import HomeScreen from "@/components/HomeScreen";
-import LoginScreen from "@/components/LoginScreen";
-import SplashScreen from "@/components/SplashScreenView";
+import HomeScreen from "../components/HomeScreen";
+import LoginScreen from "../components/LoginScreen";
+import SplashScreen from "../components/SplashScreenView";
 import { useFonts } from "expo-font";
 import React from "react";
 import { useEffect, useState } from "react";

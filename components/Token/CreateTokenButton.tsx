@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, TouchableOpacity, Animated, Easing } from 'react-native';
 import React, { useState } from 'react';
-import { Colors } from '@/constants/Colors';
+import { Colors } from '../../constants/Colors';
 import { useNavigation, NavigationProp } from '@react-navigation/native'; // Import navigation prop
-import { RootStackParamList } from '@/app/types/navigate'; // Ensure this exists
+import { RootStackParamList } from '../../app/types/navigate'; // Ensure this exists
 
 const WHALE_COUNT = 10; // Number of whales to animate
 
