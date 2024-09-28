@@ -81,11 +81,12 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#fff",
+        height: '100%', // Ensures the container takes full height of the screen
+        justifyContent: 'center', // Centers content vertically
+        alignItems: 'center', // Centers content horizontally
+        backgroundColor: '#fff', // Sets the background color
     },
+    
     image: {
         width: 250,
         height: 200,
