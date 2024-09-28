@@ -14,6 +14,7 @@ export type RootStackParamList = {
   InTokenDeets: { token: Token }; 
   InvestorBuy:{ token: Token };
   InvestorDash: undefined;
+  HomeScreenApp: undefined;
   // Other routes...
 };
 

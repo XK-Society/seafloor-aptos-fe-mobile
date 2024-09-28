@@ -1,14 +1,18 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { Colors } from '@/constants/Colors';
+import { Colors } from '../constants/Colors';
 import GmailIcon from '../assets/sf-assets/gmail.png'; // Placeholder icon
 import PetraWalletIcon from '../assets/sf-assets/petrawallet.png'; // Placeholder icon
 import Logo from "../assets/sf-assets/sf-logo-3d.png";
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from "../app/types/navigate";
 
 export default function LoginScreen() {
     const handleGmailLogin = () => {
+        const navigation = useNavigation<NavigationProp<RootStackParamList>>(); 
         console.log('Gmail login pressed');
         // Handle Gmail login logic here
+        navigation.navigate('HomeScreenApp');
     };
 
     const handlePetraWalletLogin = () => {
