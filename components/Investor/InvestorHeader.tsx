@@ -4,7 +4,6 @@ import { Colors } from '../../constants/Colors';
 const logoImage = require('../../assets/sf-assets/sf-logo-3d.png'); // Adjust the path as necessary
 
 export default function InvestorHeader() {
-    // const {user}=useUser();
 
     return (
         <View style={styles.headercontainer}>

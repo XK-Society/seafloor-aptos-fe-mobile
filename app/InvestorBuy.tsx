@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import InvestorHeader from '../components/Investor/InvestorHeader';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Colors } from '../constants/Colors';
 import InTokenDeets from '../components/InvestToken/InTokenDeets';
 import InvestorLayout from './investortab/_layout';
 import InvestorDashboard from './investortab/dashboard';

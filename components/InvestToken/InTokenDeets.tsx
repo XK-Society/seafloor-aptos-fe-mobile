@@ -27,7 +27,8 @@ const InTokenDeets2: React.FC = () => {
     };
 
     const handleBackPress = () => {
-        setModalVisible(false); // Navigate to "InvestorDashboard
+        setModalVisible(false); 
+        navigation.goBack();
     };
 
     const handleConfirmPurchase = () => {
@@ -36,7 +37,7 @@ const InTokenDeets2: React.FC = () => {
 
     const handleDonePurchase = () => {
         setModalVisible(false);
-        navigation.navigate('InvestorDash');
+        navigation.navigate('InvestorDash'); // Navigate to "InvestorDashboard
     };
 
     return (
